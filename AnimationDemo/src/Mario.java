@@ -12,9 +12,7 @@ public class Mario extends Sprite {
 	public static final double GRAVITY = 5;
 
 	private double velocityX,velocityY;
-	
-	private long timeLastUpdated;
-	
+
 	public Mario(PImage img, int x, int y) {
 		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT);
 		velocityX = 0;
@@ -24,20 +22,30 @@ public class Mario extends Sprite {
 	// METHODS
 	public void walk(int dir) {
 		// WALK!
-		x+=3*dir;
 	}
 
 	public void jump() {
 		// JUMP!
-		
-		
+
+		velocityY = 10;
 	}
 
 	public void act(ArrayList<Shape> obstacles) {
-		
-		//stuff
-		//code
-		
+		boolean falling = true;
+		for(Shape s : obstacles) {
+			if(this.intersects(s.getBounds2D())) {
+				falling = false;
+			}
+		}
+		float timeElapsed = 1/60;
+		if(falling) {
+			velocityY = velocityY+GRAVITY*timeElapsed;
+		}else {
+			velocityY = 0;
+		}
+		y = x+velocityY*timeElapsed;
+		x = y+velocityX*timeElapsed;
+		super.moveToLocation(x, y);
 	}
 
 
