@@ -13,6 +13,7 @@ public class Mario extends Sprite {
 
 	private double velocityX,velocityY;
 	
+	private long timeLastUpdated;
 	
 	public Mario(PImage img, int x, int y) {
 		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT);
@@ -33,7 +34,10 @@ public class Mario extends Sprite {
 	}
 
 	public void act(ArrayList<Shape> obstacles) {
-		// FALL (and stop when a platform is hit)
+		
+		//stuff
+		//code
+		
 	}
 
 
