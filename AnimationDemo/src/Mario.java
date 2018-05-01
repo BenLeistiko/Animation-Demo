@@ -31,19 +31,19 @@ public class Mario extends Sprite {
 
 	public void jump() {
 		// JUMP!
-		velocityY = -20;
+		velocityY = -10;
 
 	}
 
 	public void act(ArrayList<Shape> obstacles) {
 		// FALL (and stop when a platform is hit)
+		
 		super.moveByAmount(velocityX, velocityY);
-		
-		
-		
+		velocityY+=GRAVITY;
 		
 		for(Shape o:obstacles) {
-			o.getBounds().getY();
+			if(this.intersects(o.getBounds()))
+				velocityY = 0;
 		}
 
 
