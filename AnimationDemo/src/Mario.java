@@ -23,21 +23,25 @@ public class Mario extends Sprite {
 	// METHODS
 	public void walk(int dir) {
 		// WALK!
-		x+=3*dir;
+		super.moveByAmount(dir*3, 0);
 	}
 
 	public void jump() {
 		// JUMP!
-		velocityY = -10;
+		velocityY = -20;
 
 	}
 
 	public void act(ArrayList<Shape> obstacles) {
 		// FALL (and stop when a platform is hit)
-		y+=velocityY;
-
-		if(velocityY != 0)
-			velocityY-=GRAVITY;
+		super.moveByAmount(velocityX, velocityY);
+		
+		
+		
+		
+		for(Shape o:obstacles) {
+			o.getBounds().getY();
+		}
 
 
 
