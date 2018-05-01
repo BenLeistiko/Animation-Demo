@@ -14,6 +14,9 @@ public class Mario extends Sprite {
 	private double velocityX,velocityY;
 
 
+	
+	private long timeLastUpdated;
+	
 	public Mario(PImage img, int x, int y) {
 		super(img, x, y, MARIO_WIDTH, MARIO_HEIGHT);
 		velocityX = 0;
